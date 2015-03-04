@@ -42,7 +42,8 @@ var app = {
 	getHappies: function(){
 		var storedHappies = JSON.parse( localStorage.getItem( "happies" ) );
 		if(storedHappies != null){
-			this.happies = JSON.parse( localStorage.getItem( "happies" ) );
+			$('#description').hide();
+			this.happies = storedHappies;
 		}
 	},
 	saveHappies: function(){
@@ -57,6 +58,7 @@ var app = {
 		this.happies[this.happies.length] = happy;
 		console.log(this.happies);
 		this.saveHappies();
+		$('#description').slideUp();
 	},
 	getHappy: function(category){
 		if(category != null){
